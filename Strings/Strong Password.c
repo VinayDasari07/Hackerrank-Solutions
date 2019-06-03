@@ -68,7 +68,7 @@ char special_characters[20] = "!@#$%^&*()-+";
 int find(char str[],int i,char arr[])
 {
     for(int j=0;j<strlen(arr);j++)
-    if(str[i]==arr[j])
+    if(str[i]==arr[j]) //comparing str[i] with every ele of array
     return 1;
 
     return 0;
@@ -96,7 +96,7 @@ int main()
             lower =0;
             else if (str[i] >= 'A' && str[i] <= 'Z')
             upper =0;
-            else if(find(str,i,special_characters))
+            else if(find(str,i,special_characters)) //this could not be done effectively without find function
             special =0; */
             
             
@@ -111,9 +111,9 @@ int main()
             
       }
        int sum = digit+lower+upper+special;
-       int dif = 6-n;
-       if (sum>dif)
-       printf("%d\n",sum);
+       int dif = 6-n; //first condition i.e length should be 6 
+       if (sum>dif) //if len is less than 6 but still there are more than 1 missing conditions
+       printf("%d\n",sum); 
        else printf("%d\n",dif);
 
 }
