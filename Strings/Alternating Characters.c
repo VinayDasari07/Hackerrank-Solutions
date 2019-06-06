@@ -36,7 +36,7 @@ int main()
     char str[100001];
     scanf("%[^\n]%*c", str);
     int i,j,c=0;
-    int ab=0,ba=0;// to know whether the seq is AB or BA
+    int ab=0,ba=0;
     for(i=0;i<strlen(str)-1;i++)
     {
         //for(j = i+1 ; j<strlen(str);j++)
@@ -45,44 +45,50 @@ int main()
             {
                 c += 2;
                 ab = 1;
-                break; //break after knowing the type of seq
+                break;
                 //printf("AB\n");
             }
              else if(str[i]=='B'&& str[i+1]=='A')
             {
-                c += 2;//counting the seq
+                c += 2;
                 ba = 1;
                 break;
                 //printf("BA\n");
             }
        // }
     }
-        if(ab !=0 || ba!=0)//if there is seq of AB or BA
+        if(ab !=0 || ba!=0)
         for(j=i+2;j<strlen(str)-1;j++)
     {
-            if((str[j]=='A'&& str[j+1]=='B') && (ab==1)) //if seq is AB 
+        //for(j = i+1 ; j<strlen(str);j++)
+        //{
+            if((str[j]=='A'&& str[j+1]=='B') && (ab==1))
             {
                 c += 2;
-                j++;
+                
                 //printf("AB\n");
             }
-            else if((str[j] =='A' && str[j+1]=='A') && (j+2 == strlen(str))&&(ab==1))//if the seq has A at last 
-                                                                                      //it should be counted as ABABA is seq of 5
+            else if((str[j] =='A' && str[j+1]=='A') && (j+2 == strlen(str))&&(ab==1))
             c++;
-             else if((str[i]=='B'&& str[i+1]=='A') && (ba==1)) //if the seq is BA
-            {
-                c += 2;
-                j++;
-                //printf("BA\n");
+            else if (( str[j + 1] == 'A') &&
+                     (j + 2 == strlen(str)) && (ab == 1))
+              c++;
+            else if ((str[j] == 'B' && str[j + 1] == 'A') && (ba == 1)) {
+              c += 2;
+              
+              // printf("BA\n");
              } 
              else if ((str[j] == 'B' && str[j + 1] == 'B') &&
-                        (j + 2 == strlen(str)) && (ba==1))  //if the seq has B at last it should be counted as BABAB is seq of 5
+                        (j + 2 == strlen(str)) && (ba==1))
                c++;
-            
+             else if ((str[j + 1] == 'B') && (j + 2 == strlen(str)) &&
+                      (ba == 1))
+               c++;
+             // }
     }
     int len = strlen(str);
      if (c == 0) 
-     printf("%d\n", len -1);//if there is no seq then AAAA is seq of 1 with A and also for BBBB seq is B of 1
-     else printf("%d\n",len - c);//the no of chars having req seq should be subtracted from total length for the req ans
+     printf("%d\n", len -1);
+     else printf("%d\n",len - c);
     }
 }
