@@ -55,15 +55,7 @@ int main()
   //INSTEAD OF  BIG O(LENGTH OF FIRST STRING * LENGTH OF SECOND STING)
   //OPTIMIZED CODE IS OF BIG O(LENGTH OF ONE STRING(max length))
   
-#include <assert.h>
-#include <limits.h>
-#include <math.h>
-#include <stdbool.h>
-#include <stddef.h>
-#include <stdint.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
 
 #include <assert.h>
 #include <limits.h>
